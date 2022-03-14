@@ -6,32 +6,93 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+
+
+  <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+
+
+
+
   <div id="root"></div>
 
-
   <script type="text/babel">
-
     ReactDOM.render((
-
       <div>
+        <Person name="Talgarbek" lastname="Kybanychbek uulu" age="32" />
+        <Sum a={5} b={10} />
+        <Sum a={10} b={2} />
+        <Sum a={10} b={3} />
+        <larger a={10} b={5} />
+        <Smaller a={5} b={10} />
+        <a href="#">Hello</a>
+        <link to="#">hello</link>
 
-        <Person name="Elaman" age="32" />
+        <ArticleSummary
+          title="This is a sample artilce"
+          url="#">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, explicab
+        </ArticleSummary>
 
-      </div >
+
+        <article>
+          <h2>
+            <a href="#"></a>
+          </h2>
+          <p></p>
+        </article>
+      </div>
+
+
+
     ), document.querySelector('#root'));
 
-    function Person(props) {
-      return <div>My name is {props.name}.I am {props.age} years old.</div>
+
+    function ArticleSummary(props) {
+      return <article>
+        <h2>
+          <a href={props.url}>{props.title}</a>
+        </h2>
+        <p>{props.children}</p>
+      </article>
+    };
+    function link(props) {
+      return <a href={props.to}>{props.children}</a>
+    }
+    function larger(props) {
+      if (props.a > props.b) {
+        return <div>{props.a}</div>;
+      }
+      else {
+        return <div>{props.b}</div>;
+      }
+    }
+    function Smaller(props) {
+      return <div>{props.a < props.b ? props.a : props.b}</div>;
+    }
+    function Sum(props) {
+      return <div>{props.a + props.b}</div>;
     }
 
+    function Person(props) {
+      return <div>My name is {props.name}. {props.lastname}. I'm {props.age} years old.</div>
+    }
   </script>
 
+
+
+
+
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>
